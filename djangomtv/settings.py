@@ -13,24 +13,24 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # settings.py의 부모의 부모를 base directory로 잡는다
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3e!k&0vznkn*7476fe3fmh@(1802^%&gn!v+_#_3&shm^+554+'
+SECRET_KEY = '3e!k&0vznkn*7476fe3fmh@(1802^%&gn!v+_#_3&shm^+554+' # 외부에서 접속할 때 이 키를 알아야만 접속할 수 있다
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True # 오류 페이지에 대한 상세 내용 출력 <-> False로 두면 내용 출력 안 됨
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*'] # 괄호 안에 명시한 사용자만 접근 가능하게 제한함. *은 모든 사용자를 의미
 
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = [ # 장고가 생성이 되었을 때 기본적으로 설치되는 라이브러리를 앱 형태로 제공
     'main',
     'a',
     'b',
@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE = [ # 주로 보안과 관련된 것들
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -59,7 +59,9 @@ ROOT_URLCONF = 'djangomtv.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR, 'templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,7 +83,7 @@ WSGI_APPLICATION = 'djangomtv.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'), # sqlite가 단일 파일 형식이라 관리하기 쉽지만 동시 접속자가 많을 때 불리함
     }
 }
 
@@ -89,7 +91,7 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
+AUTH_PASSWORD_VALIDATORS = [ # 사용자 비밀번호 유효성 검사
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
@@ -108,18 +110,23 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us' # 영어
+LANGUAGE_CODE = 'ko-kr' # 한국어
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
-USE_I18N = True
+USE_I18N = True # 국제화
 
-USE_L10N = True
+USE_L10N = True # 현지화
 
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static files (CSS, JavaScript, Images)   =>   홈페이지를 만들고 변하지 않을 파일들
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [ # 정적 파일들 관리
+    BASE_DIR,'static',
+]
