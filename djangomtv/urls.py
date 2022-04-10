@@ -14,12 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 # from main import views # main의 views.py에서 모듈 가져다 사용할 거야!
 # from a import views
 # from b import views
 # from c import views
-from main.views import index, test # main의 views.py에서 index 모듈 가져다 사용할 거야!
+from main.views import index, test, sample # main의 views.py에서 index 모듈 가져다 사용할 거야!
 from a.views import indexA
 from b.views import indexB
 from c.views import indexC
@@ -28,8 +28,9 @@ from d.views import indexD
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
+    path('sample', sample),
     path('testtest/', test), # main의 views.py 파일에 test 함수 작성하자
-    path('aa/', indexA),
+    path('aa/', include('a.urls')),
     path('bb/', indexB),
     path('cc/', indexC),
     path('dd/', indexD),

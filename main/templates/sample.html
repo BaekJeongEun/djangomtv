@@ -1,0 +1,28 @@
+<h1>{{value}}</h1>
+<p>{{value.1.title}}</p>
+    
+{% for i in value %}
+    <h1>{{forloop.counter}} - {{i.title}}</h1>
+    <!-- counter0 : 인덱스 0부터 시작 -->
+    <!-- revcounter0 : 인덱스 역순, 마지막 인덱스가 0이 되게 -->
+    <p>{{i.contents}}</p>
+    <p>{{i.viewCount}}</p>
+    
+    {% if i.viewCount > 7 %}
+        <p>뷰 수가 많습니다.</p>
+    {% elif i.viewCount > 5 %}
+        <p>콘텐츠가 반응을 보이고 있습니다.</p>
+    {% else %}
+        <p>콘텐츠 홍보를 더 해주세요..</p>
+    {% endif %}
+    
+{% endfor %}
+
+{% with value='hello world' %}
+    <h1>{{value}}</h1>
+{% endwith %}
+
+{# hello world #}
+{% content %}
+<p>hello world!!!!!!!!!</p>
+{% endcontent %}
