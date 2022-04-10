@@ -36,6 +36,8 @@ INSTALLED_APPS = [ # 장고가 생성이 되었을 때 기본적으로 설치되
     'b',
     'c',
     'd',
+    'e',
+    'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,3 +132,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [ # 정적 파일들 관리
     BASE_DIR,'static',
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/' # 접속할 수 있는 url이 media이다.
+# STATICFILES_DIRS = [ 
+#     BASE_DIR, 'static',
+# 
+LOGIN_REDIRECT_URL = '/dd/'
