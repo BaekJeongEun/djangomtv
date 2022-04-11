@@ -7,8 +7,10 @@ def index(request):
     print(type(request))
     print(dir(request))
     print('============')
+    l = [100, 200, 300]
+    print(l)
     print(request.POST) # 터미널에 POST 방식으로 넘어온 사용자의 요청 사항 출력하기
-    return render(request, 'index.html')
+    return render(request, 'index.html', {'valueList':l})
 
 def test(request):
     return render(request, 'test.html')
@@ -25,7 +27,7 @@ def test(request):
 
 # def sample(request):
 #     d = {'name':'je', 'age':24}
-#     l = {100, 200, 300}
+#     l = [100, 200, 300]
 #     return render(request, 'sample.html', {'value':d}) # templates에서 value라는 이름으로 l을 사용할 것임!
 
 def sample(request):

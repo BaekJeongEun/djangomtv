@@ -132,6 +132,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [ # 정적 파일들 관리
     BASE_DIR,'static',
 ]
+STATIC_ROOT = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
+여기서부터 djangomtv > templates > index.html <br>
 <img src="{%static 'jeju.jpg'%}" alt='' width='200px'>
+<br>
+djangomtv/main/views.py의 index() 함수에서 보내는 리스트
+<br>
+<h1>{{valueList}}</h1>
+<h1>{{valueList.2}}</h1>
+<br>
     <form action='/' method="POST"> <!-- POST 방식으로 사용자가 요청하면 views.py에서 request로 받았을 때 정보 출력 가능 -->
         {% csrf_token %}
 
@@ -10,5 +17,6 @@
         <input type='submit' name='로그인'>
     </form>
 
-    <a href='https://djangomtv-lnurf.run.goorm.io/testtest'>이동</a>
+    <a href='https://djangomtv-lnurf.run.goorm.io/testtest'>이동</a><br>
+여기까지 djangomtv > templates > index.html <br>
 {% endblock body %}

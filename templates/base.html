@@ -5,14 +5,21 @@
     <title>Document</title>
 </head>
 <body>
+    <p>
+    원래는 이곳이 djangomtv > templates > index.html 였는데 <br>
+    index.html 자체를 block body 태그를 사용해     <br>
+    djangomtv/templates/base.html <br>
+    이 위치로 끌어옴 <br>
+    </p>
     <h1>
-    hello world djangomtv > templates > index.html
+        여기서부터 block body 시작
     </h1>
-    
     <!--body 내용-->
     {% block body %}
     {% endblock body %}
-    
+    <h1>
+        여기까지 block body 끝
+    </h1>
     <!--footer 내용-->
     <p>
         footer

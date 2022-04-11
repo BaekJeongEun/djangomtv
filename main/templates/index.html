@@ -2,11 +2,13 @@
 {% load static %}
 {% block body %}
 <img src="{%static 'jeju.jpg'%}" alt='' width='200px'>
+    <h1>{{valueList}}</h1>
     <form action='/' method="POST"> <!-- POST 방식으로 사용자가 요청하면 views.py에서 request로 받았을 때 정보 출력 가능 -->
         {% csrf_token %}
 
         <input type='text' name='id'><br>
         <input type='password' name='pw'><br>
         <input type='submit' name='로그인'>
+        
     </form>
 {% endblock body %}
